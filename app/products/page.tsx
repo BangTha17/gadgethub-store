@@ -2,7 +2,7 @@
 export const dynamic = "force-dynamic";
 
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 
@@ -31,6 +31,7 @@ export default function ProductsPage() {
 
   const fetchProducts = async () => {
     setLoading(true);
+    const supabase = getSupabase();
 
     let query = supabase.from("products").select("*");
 
