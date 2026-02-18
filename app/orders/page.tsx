@@ -2,7 +2,7 @@
 export const dynamic = "force-dynamic";
 
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import AuthGuard from "@/context/AuthGuard";
 
 type Order = {
@@ -19,6 +19,7 @@ type Order = {
 };
 
 export default function OrdersPage() {
+  const supabase = getSupabase();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [counts, setCounts] = useState({

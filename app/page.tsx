@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import {
   Smartphone,
   Laptop,
@@ -33,6 +33,7 @@ const banners = [
 ];
 
 export default function Home() {
+  const supabase = getSupabase();
   const [bannerIndex, setBannerIndex] = useState(0);
   const [bestSeller, setBestSeller] = useState<any[]>([]);
 

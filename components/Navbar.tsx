@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ShoppingCart, User, Menu, Search } from "lucide-react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
+
 import { usePathname, useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
+  const supabase = getSupabase();
   const pathname = usePathname();
   const { cart } = useCart();
 

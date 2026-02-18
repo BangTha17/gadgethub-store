@@ -2,7 +2,8 @@
 export const dynamic = "force-dynamic";
 
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
+
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Eye, EyeOff, User } from "lucide-react";
@@ -12,6 +13,7 @@ import { Eye, EyeOff, User } from "lucide-react";
 =================================================== */
 
 export default function RegisterPage() {
+  const supabase = getSupabase();
   const router = useRouter();
   const params = useSearchParams();
 

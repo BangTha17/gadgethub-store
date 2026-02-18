@@ -2,7 +2,7 @@
 export const dynamic = "force-dynamic";
 
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Eye, EyeOff, Mail } from "lucide-react";
@@ -12,6 +12,7 @@ import { Eye, EyeOff, Mail } from "lucide-react";
 =================================================== */
 
 export default function LoginPage() {
+  const supabase = getSupabase();
   const router = useRouter();
 
   const [email, setEmail] = useState("");

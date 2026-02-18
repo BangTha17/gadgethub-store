@@ -2,7 +2,8 @@
 export const dynamic = "force-dynamic";
 
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
+
 import AuthGuard from "@/context/AuthGuard";
 import { User } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -12,6 +13,7 @@ import { useRouter } from "next/navigation";
 =================================================== */
 
 export default function ProfilePage() {
+  const supabase = getSupabase();
   const router = useRouter();
 
   const [loading, setLoading] = useState(true);

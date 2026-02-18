@@ -14,9 +14,10 @@ import {
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 
 export default function MenuPage() {
+  const supabase = getSupabase();
   const [user, setUser] = useState<any>(null);
 
   /*

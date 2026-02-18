@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 
 /* ================= TYPES ================= */
 
@@ -38,6 +38,7 @@ const CartContext = createContext<CartContextType | null>(null);
 /* ================= PROVIDER ================= */
 
 export function CartProvider({ children }: any) {
+  const supabase = getSupabase();
   const [cart, setCart] = useState<CartItem[]>([]);
 
   /* ================= FETCH CART ================= */

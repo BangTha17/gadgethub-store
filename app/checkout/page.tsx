@@ -4,10 +4,11 @@ export const dynamic = "force-dynamic";
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import AuthGuard from "@/context/AuthGuard";
 
 export default function CheckoutPage() {
+  const supabase = getSupabase();
   const { cart } = useCart();
   const router = useRouter();
 
