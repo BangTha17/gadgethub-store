@@ -11,7 +11,6 @@ import { useCart } from "@/context/CartContext";
 =================================================== */
 
 export default function ProductsPage() {
-  const supabase = getSupabase();
   const params = useSearchParams();
   const router = useRouter();
   const { addToCart } = useCart();
@@ -32,6 +31,7 @@ export default function ProductsPage() {
 
   const fetchProducts = async () => {
     setLoading(true);
+    const supabase = getSupabase();
 
     let query = supabase.from("products").select("*");
 
